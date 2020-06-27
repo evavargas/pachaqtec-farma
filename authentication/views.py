@@ -10,7 +10,7 @@ from .forms import FormLogin
 
 
 class Login(FormView):
-    template_name = 'authentication/login.html'
+    template_name = 'forms/signIn.html'
     form_class = FormLogin
     success_url = reverse_lazy('farma:list.product')
 
