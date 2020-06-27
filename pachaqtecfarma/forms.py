@@ -17,7 +17,7 @@ class ProductForm(forms.ModelForm):
 class InvoiceForm(forms.ModelForm):
     class Meta:
         model = Invoice
-        fields = ["client", "fecha", "products"]
+        fields = ["client", "fecha"]
 
 
 class ResumeForm(forms.ModelForm):
