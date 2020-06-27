@@ -10,7 +10,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-.vscode
 venv
 # C extensions
 *.so
@@ -42,10 +41,6 @@ var/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
-# Translations
-*.mo
-*.pot
 
 # Django stuff:
 *.log

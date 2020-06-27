@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "/usr/local/bin/python3"
+=======
+    "python.pythonPath": "/home/eva/.pyenv/versions/3.7.7/bin/python"
+>>>>>>> be8e11634ed2f12af7e39d64f241a93ba70a452a
 }
