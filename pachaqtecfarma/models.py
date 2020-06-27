@@ -17,6 +17,7 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
     product = models.CharField(max_length=100, blank=False, null=False)
@@ -27,15 +28,16 @@ class Product(models.Model):
         verbose_name = "Producto"
         verbose_name_plural = "Productos"
         ordering = ["product"]
-    
+
     def __str__(self):
         return self.product
+
 
 class Invoice(models.Model):
     id = models.AutoField(primary_key=True)
     client = models.ForeignKey(Client, on_delete=models.PROTECT)
     fecha = models.DateField(null=True, blank=True, default=timezone.now)
-    products = models.ManyToManyField(Product, through='Resume')
+    products = models.ManyToManyField(Product, through="Resume")
 
     class Meta:
         verbose_name = "Factura"
@@ -43,11 +45,22 @@ class Invoice(models.Model):
         ordering = ["id"]
 
     def __str__(self):
-        return "Factura " + str(self.id) + " - " + self.client.name + " " + self.client.last_name
+        return (
+            "Factura "
+            + str(self.id)
+            + " - "
+            + self.client.name
+            + " "
+            + self.client.last_name
+        )
+
 
 class Resume(models.Model):
     invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=False, null=False)
 
-
+    class Meta:
+        verbose_name = "Resumen"
+        verbose_name_plural = "Resumenes"
+        ordering = ["product"]
