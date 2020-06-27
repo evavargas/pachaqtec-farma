@@ -3,6 +3,7 @@ from django.views.decorators.http import require_http_methods
 from django.shortcuts import redirect
 from .models import Client, Product, Invoice, Resume
 from .forms import DNIForm
+from django.db.models import Sum, F
 
 
 # Create your views here.
@@ -14,8 +15,9 @@ def dni_verification(request):
         form = DNIForm(request.POST)
         if form.is_valid():
             dni = form.cleaned_data['dni']
-            cliente=Client.objects.filter(dni=dni)
-            return render(request, 'cliente.html', {'cliente': cliente})
+            cliente=Client.objects.get(dni=dni)
+            invoice=Invoice.objects.filter(client=cliente)
+            return render(request, 'cliente.html', {'cliente': cliente,'facturas':invoice})
 
     else:
          form = DNIForm()
