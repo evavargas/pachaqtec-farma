@@ -25,3 +25,4 @@ class Login(FormView):
     def form_valid(self, form):
         login(self.request, form.get_user())
         return super(Login, self).form_valid(form)
+        
