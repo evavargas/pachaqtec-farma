@@ -24,3 +24,6 @@ class ResumeForm(forms.ModelForm):
     class Meta:
         model = Resume
         fields = ["product", "invoice", "quantity"]
+
+class DNIForm(forms.Form):
+    dni = forms.CharField(max_length=15,widget=forms.TextInput(attrs={'class':'form-control','id':'dni','placeholder':'Ingresa tu DNI'}))
