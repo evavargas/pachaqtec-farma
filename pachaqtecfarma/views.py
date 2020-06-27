@@ -4,9 +4,16 @@ from django.views.decorators.http import require_http_methods
 from django.shortcuts import redirect
 from .models import Client, Product, Invoice, Resume
 from .forms import DNIForm
+from django.views.generic import ListView
 
 
 # Create your views here.
+class ver_productos(ListView):
+    model = Product
+    template_name = 'forms/list_products.html'
+    queryset = Product.objects.all()
+    context_object_name = 'products'
+
 def home(request):
     return render(request, "layout.html", {})
 
