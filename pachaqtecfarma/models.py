@@ -64,3 +64,6 @@ class Resume(models.Model):
         verbose_name = "Resumen"
         verbose_name_plural = "Resumenes"
         ordering = ["product"]
+
+    def __str__(self):
+        return f"Resumen {self.invoice} - {self.product} - {self.quantity} u."
