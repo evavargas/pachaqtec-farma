@@ -50,6 +50,17 @@ class CreateInvoice(CreateView):
 
 
 def llenar_factura(request,invoice_id=1):
-    productos = Product.objects.all()
-    return render(request, "crear-factura.html", {"id":invoice_id,"productos":productos})
+    productos = Product.objects.filter(stock__gt=0)
+    return render(request, "forms/crear-factura.html", {"id":invoice_id,"productos":productos})
+
+def agregar_factura(request,invoice_id=1):
+    form = request.POST.copy()
+    producto=Product.objects.get(pk=form.get('producto'))
+    if int(producto.stock) >= int(form.get('cantidad')):
+        producto.stock = int(producto.stock)-int(form.get('cantidad'))
+        producto.save()
+        resume=Resume.objects.create(invoice_id=invoice_id,product_id=form.get('producto'),quantity=form.get('cantidad'))
+        return render(request, "producto-agregado.html", {"id":invoice_id,"Mensaje":"PRODUCTO AGREGADO"})
+    else:
+        return render(request, "producto-agregado.html", {"id":invoice_id,"Mensaje":"PRODUCTO NO AGREGADO: No hay stock"})
 

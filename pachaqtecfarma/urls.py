@@ -10,5 +10,6 @@ urlpatterns = [
     path("verificar-dni", views.dni_verification, name="verificar-dni"),
     path('crear-factura', CreateInvoice.as_view(), name='create_invoice'),
     path('llenar-factura/<int:invoice_id>', views.llenar_factura, name='llenar_factura'),
+    path('agregar-a-factura/<int:invoice_id>', views.agregar_factura, name='agregar_factura'),
 ]
 
