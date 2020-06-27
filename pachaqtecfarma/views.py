@@ -8,7 +8,7 @@ from .forms import DNIForm
 
 # Create your views here.
 def home(request):
-    return render(request, "forms/layout.html", {})
+    return render(request, "layout.html", {})
 
 def dni_verification(request):
     if request.method == 'POST':
