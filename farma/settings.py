@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pachaqtecfarma'
+    'pachaqtecfarma',
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR, '/static')
+
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'

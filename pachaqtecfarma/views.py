@@ -7,11 +7,19 @@ from django.db.models import Sum, F
 
 
 # Create your views here.
+class ver_productos(ListView):
+    model = Product
+    template_name = "forms/list_products.html"
+    queryset = Product.objects.all()
+    context_object_name = "products"
+
+
 def home(request):
-    return render(request, "forms/layout.html", {})
+    return render(request, "base.html", {})
+
 
 def dni_verification(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = DNIForm(request.POST)
         if form.is_valid():
             dni = form.cleaned_data['dni']
@@ -20,7 +28,10 @@ def dni_verification(request):
             return render(request, 'cliente.html', {'cliente': cliente,'facturas':invoice})
 
     else:
-         form = DNIForm()
+        form = DNIForm()
 
-    return render(request, 'forms/client_form.html', {'form': form})
+    return render(request, "forms/client_form.html", {"form": form})
 
+
+def login(request):
+    return render(request, "forms/signIn.html", {})
