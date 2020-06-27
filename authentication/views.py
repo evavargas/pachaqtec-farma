@@ -12,7 +12,7 @@ from .forms import FormLogin
 class Login(FormView):
     template_name = 'authentication/login.html'
     form_class = FormLogin
-    success_url = reverse_lazy('pachaqtecfarma:list.product')
+    success_url = reverse_lazy('farma:list.product')
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)

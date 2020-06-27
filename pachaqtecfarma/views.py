@@ -15,7 +15,7 @@ class ver_productos(ListView):
     context_object_name = 'products'
 
 def home(request):
-    return render(request, "layout.html", {})
+    return render(request, "forms/base.html", {})
 
 def dni_verification(request):
     if request.method == 'POST':
