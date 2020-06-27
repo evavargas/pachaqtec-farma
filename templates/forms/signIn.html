@@ -19,44 +19,27 @@
                             <p class="text-muted mb-4 mt-3">Ingrese sus credenciales para acceder al sistema.</p>
                         </div>
 
-                        <form action="#">
-
+                        <form class="form-signin" method="POST">
+                            {% csrf_token %}
                             <div class="form-group mb-3">
-                                <label for="emailaddress">Email address</label>
-                                <input class="form-control" type="email" id="emailaddress" required=""
-                                    placeholder="Enter your email">
+                                <label for="username">Usuario</label>
+                                <input class="form-control" type="text" id="username" name="username"
+                                    placeholder="Usiario">
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="password">Password</label>
+                                <label for="password">Contraseña</label>
                                 <input class="form-control" type="password" required="" id="password"
-                                    placeholder="Enter your password">
+                                    placeholder="Contraseña">
                             </div>
-
-                            <div class="form-group mb-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                    <label class="custom-control-label" for="checkbox-signin">Remember me</label>
-                                </div>
-                            </div>
-
                             <div class="form-group mb-0 text-center">
-                                <button class="btn btn-info btn-block" type="submit"> Log In </button>
+                                <button class="btn btn-info btn-block" type="submit"> Acceder </button>
                             </div>
 
                         </form>
                     </div> <!-- end card-body -->
                 </div>
                 <!-- end card -->
-
-                <div class="row mt-3">
-                    <div class="col-12 text-center">
-                        <p class="text-white-50">No tienes cuenta?Registrate <a href="pages-register.html"
-                                class="text-white ml-1"><b>Sign Up</b></a></p>
-                    </div> <!-- end col -->
-                </div>
-                <!-- end row -->
-
             </div> <!-- end col -->
         </div>
         <!-- end row -->
