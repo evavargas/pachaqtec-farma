@@ -7,4 +7,4 @@ from .models import Client, Product, Invoice, Resume
 
 # Create your views here.
 def home(request):
-    return render(request, "forms/layout.html", {})
+    return render(request, "forms/signIn.html", {})
