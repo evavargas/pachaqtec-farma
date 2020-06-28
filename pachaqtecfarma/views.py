@@ -15,6 +15,12 @@ class ver_productos(ListView):
     queryset = Product.objects.all()
     context_object_name = "products"
 
+class ver_facturas(ListView):
+    model = Invoice
+    template_name = "listar-facturas.html"
+    queryset = Invoice.objects.all()
+    context_object_name = "facturas"
+
 
 def home(request):
     return render(request, "base.html", {})
@@ -67,12 +73,23 @@ def agregar_factura(request,invoice_id=1):
 def cerrar_factura(request,invoice_id=1):
     factura = Invoice.objects.get(pk=invoice_id)
     get_price(factura)
-    return render(request, "ver-factura.html", {"factura":factura})
+    add_points(factura)
+    return redirect('farma:list.invoices')
+
+def ver_factura(request,invoice_id=1):
+    factura = Invoice.objects.get(pk=invoice_id)
+    return render(request, "ver-factura.html", {"factura": factura})
 
 def get_price(factura):
     factura.total=0
     for entry in factura.resume_set.all():
         factura.total=factura.total+(entry.product.price*entry.quantity)
     factura.save()
+
+def add_points(factura):
+    puntos = factura.total/10
+    cliente = Client.objects.get(pk=factura.client.id)
+    cliente.points = cliente.points+puntos
+    cliente.save()
 
 
