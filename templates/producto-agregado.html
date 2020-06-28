@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%} Verificación Cliente {%endblock %}
+{% block content %}
+
+<body class="authentication-bg authentication-bg-pattern">
+
+    <div class="account-pages mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-pattern">
+
+                        <div class="card-body p-4">
+
+                            <div class="text-center w-75 m-auto">
+                                <a href="index.html">
+                                    <span><img src="assets/images/logo-dark.png" alt="" height="22"></span>
+                                </a>
+                                <p class="text-muted mb-4 mt-3">{{Mensaje}}</p>
+                            </div>
+                               <div class="form-group mb-0 text-center">
+                                    <a class="btn btn-info btn-block" href="../llenar-factura/{{id}}" > Agregar Otro </a>
+                                </div>
+                                <br>
+
+                                <div class="form-group mb-0 text-center">
+                                    <a class="btn btn-info btn-block" href="../cerrar-factura/{{id}}" > Finalizar </a>
+                                </div>
+
+
+                        </div> <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                    <!-- end row -->
+
+                </div> <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page -->
+    {%endblock%}
+
+    <footer class="footer footer-alt">
+        2015 - 2019 &copy; UBold theme by <a href="" class="text-white-50">Coderthemes</a>
+    </footer>
+
+    <!-- Vendor js -->
+    <script src="{% static 'static/assets/js/vendor.min.js' %}"></script>
+
+    <!-- App js -->
+    <script src="{% static 'static/assets/js/app.min.js' %}"></script>
+</body>
