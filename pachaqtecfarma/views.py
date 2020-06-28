@@ -64,3 +64,15 @@ def agregar_factura(request,invoice_id=1):
     else:
         return render(request, "producto-agregado.html", {"id":invoice_id,"Mensaje":"PRODUCTO NO AGREGADO: No hay stock"})
 
+def cerrar_factura(request,invoice_id=1):
+    factura = Invoice.objects.get(pk=invoice_id)
+    get_price(factura)
+    return render(request, "ver-factura.html", {"factura":factura})
+
+def get_price(factura):
+    factura.total=0
+    for entry in factura.resume_set.all():
+        factura.total=factura.total+(entry.product.price*entry.quantity)
+    factura.save()
+
+

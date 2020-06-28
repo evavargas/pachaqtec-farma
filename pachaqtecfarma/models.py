@@ -7,7 +7,7 @@ class Client(models.Model):
     dni = models.CharField(max_length=15, unique=True, null=False)
     name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
-    points = models.FloatField(blank=True, null=True)
+    points = models.FloatField(default=0)
 
     class Meta:
         verbose_name = "Cliente"
@@ -38,6 +38,7 @@ class Invoice(models.Model):
     client = models.ForeignKey(Client, on_delete=models.PROTECT)
     fecha = models.DateField(null=True, blank=True, default=timezone.now)
     products = models.ManyToManyField(Product, through="Resume")
+    total = models.FloatField(default=0)
 
     class Meta:
         verbose_name = "Factura"
