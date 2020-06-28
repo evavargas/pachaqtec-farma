@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="{% static 'static/assets/images/favicon.ico' %}">
+    <!-- App css -->
+    <link href="{% static 'static/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'static/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'static/assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <title>{% block title %} {% endblock %}</title>
+
+
+    {% block css %} {% endblock %}
+</head>
+
+<body class="authentication-bg authentication-bg-pattern">
+
+      <!-- Navigation Bar-->
+      <header id="topnav">
+
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                    <li class="dropdown notification-list">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle nav-link">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+
+
+                    <li class="dropdown notification-list">
+                        
+                        
+                            <span class="pro-user-name ml-1">
+                                {{user.username}} - <a href="{%url 'farma:logout' %}">Cerrar Sesión</a>
+                            </span>
+                       
+
+                    </li>
+
+                </ul>
+
+            </div> <!-- end container-fluid-->
+        </div>
+        <!-- end Topbar -->
+
+        <div class="topbar-menu">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fe-airplay"></i>Opciones <div class="arrow-down"></div></a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="../listar-producto">Listar Productos</a>
+                                </li>
+
+                                <li>
+                                    <a href="../ver-facturas">Listar Facturas</a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'farma:create_invoice'%}">Crear Factura</a>
+                                </li>
+                               
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- End navigation menu -->
+
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end #navigation -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end navbar-custom -->
+
+    </header>
+    <!-- End Navigation Bar-->
+
+    {% block content %} {% endblock %}
+
+    {% block js %} {% endblock %}
+</body>
+
+</html>

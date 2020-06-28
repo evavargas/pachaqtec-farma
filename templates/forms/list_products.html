@@ -1,7 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base-login.html' %}
 
 
 {% block content %}
+
+<div class="wrapper">
+    <div class="container-fluid">
     <div class="row">
         <div class="col">
             <h3 class="one">Listado</h3>
@@ -18,7 +21,6 @@
                 <th>ID</th>
                 <th>PRODUCTO</th>
                 <th>STOCK</th>
-                <th>SELECCION</th>
             </tr>
         </thead>
         <tbody>
@@ -27,16 +29,10 @@
                     <td>{{ forloop.counter }}</td>
                     <td>{{ product.product }}</td>
                     <td>{{ product.stock|upper }}</td>
-                    <td>
-                        <div class="btn-group btn-group-sm">
-                            <a class="btn btn-warning" href="#">
-                                <i class="fa fa-edit"></i>
-                                SELECCIONAR
-                            </a>
-                        </div>
-                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    </div>
+</div>
 {% endblock %}
