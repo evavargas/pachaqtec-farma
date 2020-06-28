@@ -26,7 +26,14 @@ def dni_verification(request):
             dni = form.cleaned_data['dni']
             cliente=Client.objects.get(dni=dni)
             invoice=Invoice.objects.filter(client=cliente)
-            return render(request, 'cliente.html', {'cliente': cliente,'facturas':invoice})
+            product = Product.objects.all()
+            total = []
+            
+            return render(request, 'cliente.html', {
+                'cliente': cliente,'facturas':invoice,
+                'productos': product,
+
+            })
 
     else:
         form = DNIForm()

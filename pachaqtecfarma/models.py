@@ -59,6 +59,7 @@ class Resume(models.Model):
     invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=False, null=False)
+    sub_total = models.FloatField(default=0)
 
     class Meta:
         verbose_name = "Resumen"
