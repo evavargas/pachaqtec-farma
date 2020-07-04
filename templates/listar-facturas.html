@@ -4,35 +4,38 @@
 {% block content %}
 <div class="wrapper">
     <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h3 class="one">Listado</h3>
-            <p style="color:#ffffff; font-size:16px;">Haga click sobre el ID para ver el detalle</p>
+        <div class="row">
+            <div class="col">
+                <h3 class="one">Listado</h3>
+                <p style="color:#ffffff; font-size:16px;">Haga click sobre el ID para ver el detalle</p>
+            </div>
         </div>
-    </div>
-    <table class="table">
-        <style> 
-            tbody, thead, h3{
-                color: white;
-            }
-        </style>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>FECHA</th>
-                <th>TOTAL</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for factura in facturas %}
+        <table class="table">
+            <style>
+                tbody,
+                thead,
+                h3 {
+                    color: white;
+                }
+            </style>
+            <thead>
                 <tr>
-                    <td><a style="color:#ffffff; font-size:16px;" href="./ver-factura/{{factura.id}}">{{ factura.id }}</a></td>
+                    <th>ID</th>
+                    <th>FECHA</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for factura in facturas %}
+                <tr>
+                    <td><a style="color:#ffffff; font-size:16px;"
+                            href="./ver-factura/{{factura.id}}">{{ factura.id }}</a></td>
                     <td>{{ factura.fecha }}</td>
                     <td>{{ factura.total }}</td>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}

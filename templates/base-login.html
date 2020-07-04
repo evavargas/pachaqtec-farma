@@ -21,8 +21,8 @@
 
 <body class="authentication-bg authentication-bg-pattern">
 
-      <!-- Navigation Bar-->
-      <header id="topnav">
+    <!-- Navigation Bar-->
+    <header id="topnav">
 
         <!-- Topbar Start -->
         <div class="navbar-custom">
@@ -43,12 +43,12 @@
 
 
                     <li class="dropdown notification-list">
-                        
-                        
-                            <span class="pro-user-name ml-1">
-                                {{user.username}} - <a href="{%url 'farma:logout' %}">Cerrar Sesión</a>
-                            </span>
-                       
+
+
+                        <span class="pro-user-name ml-1">
+                            {{user.username}} - <a href="{%url 'farma:logout' %}">Cerrar Sesión</a>
+                        </span>
+
 
                     </li>
 
@@ -79,7 +79,7 @@
                                 <li>
                                     <a href="{% url 'farma:create_invoice'%}">Crear Factura</a>
                                 </li>
-                               
+
                             </ul>
                         </li>
 

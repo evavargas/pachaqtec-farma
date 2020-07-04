@@ -27,10 +27,11 @@
                                 <div class="form-group mb-3">
                                     <label for="producto">Producto</label>
                                     <select name="producto" id="producto">
-                                    {%for producto in productos%}
-                                    <option value="{{producto.id}}">{{producto.product}} - Stock: {{producto.stock}}</option>
-                                    {%endfor%}
-                                </select>
+                                        {%for producto in productos%}
+                                        <option value="{{producto.id}}">{{producto.product}} - Stock: {{producto.stock}}
+                                        </option>
+                                        {%endfor%}
+                                    </select>
                                 </div>
 
                                 <div class="form-group mb-3">

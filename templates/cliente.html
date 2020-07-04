@@ -3,91 +3,92 @@
 
 {% block title%} Detalle de cliente {%endblock %}
 {% block content %}
-    <body>
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
 
-        <div class="wrapper">
-            <div class="container-fluid">
+<body>
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
 
-                <!-- start page title -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title">Detalle de cliente  {{cliente.name}} {{cliente.last_name}} </h4>
-                        </div>
+    <div class="wrapper">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Detalle de cliente {{cliente.name}} {{cliente.last_name}} </h4>
                     </div>
-                </div>     
-                <!-- end page title --> 
+                </div>
+            </div>
+            <!-- end page title -->
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="pl-xl-3 mt-3 mt-xl-0">
-                                        <a href="#" class="text-primary">{{cliente.dni}}</a>
-                                        <h4 class="mb-3">{{cliente.name}} {{cliente.last_name}}</h4>
-                                        <h4 class="mb-4">Puntos : <b>{{cliente.points}}</b></h4>
- <!--                                        <h4><span class="badge bg-soft-success text-success mb-4">Instock</span></h4> -->
-                                    </div>
-                                </div> <!-- end col -->
-                            </div>
-                            <!-- end row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="pl-xl-3 mt-3 mt-xl-0">
+                                    <a href="#" class="text-primary">{{cliente.dni}}</a>
+                                    <h4 class="mb-3">{{cliente.name}} {{cliente.last_name}}</h4>
+                                    <h4 class="mb-4">Puntos : <b>{{cliente.points}}</b></h4>
+                                    <!--                                        <h4><span class="badge bg-soft-success text-success mb-4">Instock</span></h4> -->
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
 
 
-                            <div class="table-responsive mt-4">
-                                <h4 class="mb-4">Compras:</h4>
-                                <table class="table table-bordered table-centered mb-0">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Fecha</th>
-                                            <th>Productos</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {%for factura in facturas%}
-                                        <tr>
-                                            <td>{{factura.id}}</td>
-                                            <td>{{factura.fecha}}</td>
-                                            <td>
+                        <div class="table-responsive mt-4">
+                            <h4 class="mb-4">Compras:</h4>
+                            <table class="table table-bordered table-centered mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Fecha</th>
+                                        <th>Productos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for factura in facturas%}
+                                    <tr>
+                                        <td>{{factura.id}}</td>
+                                        <td>{{factura.fecha}}</td>
+                                        <td>
                                             <!--     <div class="progress-w-percent mb-0">
                                                     <span class="progress-value">478 </span>
                                                     <div class="progress progress-sm">
                                                         <div class="progress-bar bg-success" role="progressbar" style="width: 56%;" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div> -->
-                                                {%for producto in factura.resume_set.all%}
-                                                <p>{{producto.product}}</p>
-                                                {%endfor%}
-                                            </td>
-                                        </tr>
-                                        {%endfor%}
-                                    </tbody>
-                                </table>
-                            </div>
+                                            {%for producto in factura.resume_set.all%}
+                                            <p>{{producto.product}}</p>
+                                            {%endfor%}
+                                        </td>
+                                    </tr>
+                                    {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
 
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                </div>
-                <!-- end row-->
-                
-            </div> <!-- end container -->
-        </div>
-        <!-- end wrapper -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row-->
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
 
-        {%endblock%}
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
-        <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
+    {%endblock%}
 
-        <!-- App js-->
-        <script src="assets/js/app.min.js"></script>
-        
-    </body>
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!-- App js-->
+    <script src="assets/js/app.min.js"></script>
+
+</body>

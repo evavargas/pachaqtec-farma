@@ -5,34 +5,36 @@
 
 <div class="wrapper">
     <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h3 class="one">Listado</h3>
+        <div class="row">
+            <div class="col">
+                <h3 class="one">Listado</h3>
+            </div>
         </div>
-    </div>
-    <table class="table">
-        <style> 
-            tbody, thead, h3{
-                color: white;
-            }
-        </style>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>PRODUCTO</th>
-                <th>STOCK</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in products %}
+        <table class="table">
+            <style>
+                tbody,
+                thead,
+                h3 {
+                    color: white;
+                }
+            </style>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCTO</th>
+                    <th>STOCK</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ product.product }}</td>
                     <td>{{ product.stock|upper }}</td>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}

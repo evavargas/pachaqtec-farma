@@ -10,9 +10,9 @@ from .forms import FormLogin
 
 
 class Login(FormView):
-    template_name = 'forms/signIn.html'
+    template_name = "forms/signIn.html"
     form_class = FormLogin
-    success_url = reverse_lazy('farma:list.invoices')
+    success_url = reverse_lazy("farma:list.invoices")
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
@@ -25,4 +25,3 @@ class Login(FormView):
     def form_valid(self, form):
         login(self.request, form.get_user())
         return super(Login, self).form_valid(form)
-        
